@@ -11,7 +11,7 @@ IP_ADRESS = "localhost"
 # Var
 socki = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socki.connect((IP_ADRESS, PORT))
-opponents: Dict[str, handler.Hanle] = {}
+opponents: Dict[str, handler.Handle] = {}
 
 while True:
     global socki, opponents
@@ -20,5 +20,5 @@ while True:
     signature, s = s.split("ä")
 
     if not signature in opponents.keys():
-        opponents[signature] = handler.Hanle(socki)
+        opponents[signature] = handler.Handle(socki)
     threading.Thread(target=opponents[signature].handle, args=s).start()

@@ -1,7 +1,7 @@
 import socket
 
 
-class Hanle:
+class Handle:
     socki: socket
 
     def __init__(self, sock: socket):
