@@ -2,17 +2,13 @@ import socket
 
 
 class Hanle:
-    socki: socket = None
-    s: str = None
+    socki: socket
 
-    def __init__(self, s_i: str, socki_i: socket):
-        global s, socki
+    def __init__(self, sock: socket):
+        global socki
+        socki = sock
 
-        s = s_i
-        socki = socki_i
-
-    def handle(self):
-        global s, socki
+    def handle(self, s):
         response = ""
 
         print(s, " -> ", response)
