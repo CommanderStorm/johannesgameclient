@@ -1,10 +1,17 @@
-import threading
 import socket
+import threading
+
 import handler
 
+# Consts
+PORT = 3000
+IP_ADRESS = "localhost"
+# Var
 socki = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-socki.connect(("localhost", 3000))
+socki.connect((IP_ADRESS, PORT))
 
+
+# Methods
 def socki_recv(s):
     global socki
     handler.hanle(s, socki).handle()
