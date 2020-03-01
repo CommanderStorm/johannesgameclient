@@ -1,7 +1,7 @@
 import socket
 
 
-class hanle:
+class Hanle:
     socki: socket = None
     s: str = None
 
@@ -14,6 +14,6 @@ class hanle:
     def handle(self):
         global s, socki
         response = ""
-        print(s, " -> ", response)
 
+        print(s, " -> ", response)
         socki.send(bytes(response, "utf8") + b'\r\n')

@@ -14,7 +14,7 @@ socki.connect((IP_ADRESS, PORT))
 # Methods
 def socki_recv(s):
     global socki
-    handler.hanle(s, socki).handle()
+    handler.Hanle(s, socki).handle()
 
 
 while True:
