@@ -25,8 +25,8 @@ def findpos(req):
             break
         for j in [1, 2, 3, 4, 5, 6]:
             if gamefield[i * j * 2 - 1] == "0":
-                return f'{response}\\{roundid};{gameid};({j * 2},{i})'
-    return f'{response}\\{roundid};{gameid};(4,4)'
+                return f'\\{roundid};{gameid};({j * 2},{i})'
+    return f'\\{roundid};{gameid};(4,4)'
 
 
 send(NAME)
@@ -44,4 +44,3 @@ while True:
             response = findpos(req)
             respon = f'{respon}{response}'
         send(respon[1:])
-        print("x")
