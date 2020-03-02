@@ -12,13 +12,13 @@ NAME = "Python"
 # Var
 gamesocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 gamesocket.connect((IP_ADRESS, GAMEPORT))
-gamesocket.send(bytes(NAME, "utf8") + b'\n')
 
 
 def send(string):
-    gamesocket.send(bytes(string) + b'\n')
+    gamesocket.send(bytes(string, "utf8") + b'\n')
 
 
+send(NAME)
 while True:
     first = str(gamesocket.recv(1024), "utf8").strip("\n")
     if first == "Welcome":
