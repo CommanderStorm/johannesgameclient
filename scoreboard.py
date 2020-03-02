@@ -1,5 +1,6 @@
 import socket
 import time
+import sys as System
 
 SCOREPORT = 1339
 IP_ADRESS = "10.183.83.127"
@@ -9,4 +10,4 @@ while True:
     scoresocket.connect((IP_ADRESS, SCOREPORT))
     print(str(scoresocket.recv(32768), "utf8"))
     scoresocket.close()
-    time.sleep(360)
+    System.exit(0)

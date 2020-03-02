@@ -20,10 +20,10 @@ def send(string):
 def findpos(req):
     direction, roundid, gameid, enemy, gamefield = req.split(";")
     broken = False
-    for i in range(1, 13):
+    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
         if broken:
             break
-        for j in range(1, 7):
+        for j in [1, 2, 3, 4, 5, 6]:
             if gamefield[i * j * 2 - 1] == "0":
                 return f'{response}\\{roundid};{gameid};({j * 2},{i})'
     return f'{response}\\{roundid};{gameid};(4,4)'
@@ -42,5 +42,8 @@ while True:
         response = ""
         for req in requests:
             response = findpos(req)
+
             respon = f'{respon}{response}'
         send(respon[1:])
+        threading
+        print("x")
