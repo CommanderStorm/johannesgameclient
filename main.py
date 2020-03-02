@@ -20,7 +20,7 @@ opponents: Dict[str, handler.Handle] = {}
 while True:
 
     s = str(gamesocket.recv(1024), "utf8")
-    signature, s = s.split("ä")
+    signature, s = s.split(";")
 
     if signature not in opponents.keys():
         opponents[signature] = handler.Handle(gamesocket)
