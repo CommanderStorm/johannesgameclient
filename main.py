@@ -13,11 +13,19 @@ NAME = "Python"
 gamesocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 gamesocket.connect((IP_ADRESS, GAMEPORT))
 gamesocket.send(bytes(NAME, "utf8") + b'\n')
+
+
+def send(string):
+    gamesocket.send(bytes(string) + b'\n')
+
+
 while True:
     first = str(gamesocket.recv(1024), "utf8").strip("\n")
     if first == "Welcome":
         print("Connected")
     elif first == "Ping":
-        gamesocket.send(b'PONG')
-    else:
-        requests=first.split("/")
+        send("PONG")
+    elif first is not "":
+        print(first)
+        requests = first.split("/")
+        print(requests)
