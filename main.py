@@ -19,7 +19,7 @@ def send(string):
 
 send(NAME)
 while True:
-    first = str(gamesocket.recv(1024), "utf8").strip("\n")
+    first = str(gamesocket.recv(32768), "utf8").strip("\n")
     if first == "Welcome":
         print("Connected")
     elif first == "Ping":
@@ -29,9 +29,21 @@ while True:
         response = ""
         for req in requests:
             direction, roundid, gameid, enemy, gamefield = req.split(";")
-            move = "(0,0)"
+            broken = False
+            for i in range(1, 7):
+                if broken:
+                    break
+                for j in range(1, 6):
+                    if gamefield[i * 2 * j] == 0:
+                        broken = True
+                        move = f"({j * 2},{i*2})"
+                        break
+            else:
+                move = "(4,4)"
+
             response = f'{response}\\{roundid};{gameid};{move}'
 
         send(response[1:])
-        print(response)
+        print(response[1:])
+        print(requests)
 #  H;71;11;JS-IterativeBad;300000300000300000300000300000300000000000000000000800080000000000000000/H;13;11;JS-RandomBad;000000000000000000010000014080004000000000038000030000000000000080000000/V;96;11;JS-IterativeGood;003010883010000000810030010033880003003310883310000310880310000000800000/V;70;11;JS-IterativeBad;883100883133830433830410880010880100880100810000810010180410133400833000/V;191;11;3chtuin;881013881013800001800031803340804411801401800400800100800100800100800000
