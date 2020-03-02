@@ -14,8 +14,10 @@ gamesocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 gamesocket.connect((IP_ADRESS, GAMEPORT))
 gamesocket.send(bytes(NAME, "utf8") + b'\n')
 while True:
-    first = str(gamesocket.recv(1024), "utf8")
-    if first == "Welcome\n":
+    first = str(gamesocket.recv(1024), "utf8").strip("\n")
+    if first == "Welcome":
         print("Connected")
-    elif first == "Ping\n":
+    elif first == "Ping":
         gamesocket.send(b'PONG')
+    else:
+        requests=first.split("/")
