@@ -41,10 +41,7 @@ while True:
     elif first is not "":
         requests = first.split("/")
         respon = ""
-        response = ""
         for req in requests:
             response = findpos(req)
             respon = f'{respon}{response}'
-
-        send(response[1:])
-        print(f'{response} und {requests}')
+        send(respon[1:])
