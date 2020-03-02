@@ -5,7 +5,6 @@ import time as t
 # Consts
 GAMEPORT = 1337
 RESULTPORT = 1338
-SCOREPORT = 1339
 IP_ADRESS = "10.183.83.127"
 NAME = "Python"
 
