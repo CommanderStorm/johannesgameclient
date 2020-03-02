@@ -9,4 +9,4 @@ while True:
     scoresocket.connect((IP_ADRESS, SCOREPORT))
     print(str(scoresocket.recv(32768), "utf8"))
     scoresocket.close()
-    time.sleep(5)
+    time.sleep(360)

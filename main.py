@@ -1,9 +1,7 @@
 import socket
-import sys
-import time as t
+import threading
 
 # pyinstaller --onefile -w main.py
-
 # Consts
 GAMEPORT = 1337
 RESULTPORT = 1338
@@ -41,6 +39,7 @@ while True:
     elif first is not "":
         requests = first.split("/")
         respon = ""
+        response = ""
         for req in requests:
             response = findpos(req)
             respon = f'{respon}{response}'
