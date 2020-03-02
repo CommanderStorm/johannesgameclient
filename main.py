@@ -42,8 +42,6 @@ while True:
         response = ""
         for req in requests:
             response = findpos(req)
-
             respon = f'{respon}{response}'
         send(respon[1:])
-        threading
         print("x")
