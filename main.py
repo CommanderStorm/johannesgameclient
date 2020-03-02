@@ -33,8 +33,8 @@ while True:
             for i in range(1, 7):
                 if broken:
                     break
-                for j in range(1, 6):
-                    if gamefield[i * 2 * j] == 0:
+                for j in range(1, 7):
+                    if gamefield[i * 2 * j * 2] == "0":
                         broken = True
                         move = f"({j * 2},{i*2})"
                         break
